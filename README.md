@@ -1,3 +1,5 @@
-Sample code for the [Executing arbitrary strings][section] section of the MV3 migration documentation.
+# 👨🏻‍💻 Salesforce Dev Console One
 
-[section]: https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/#executing-arbitrary-strings
+> Extension to enhance the Salesforce web developer console interface.
+
+*Coming soon...*

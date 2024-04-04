@@ -1,5 +1,5 @@
 {
-  "name": "MV3 Migration - content script example",
+  "name": "Salesforce Dev Console One",
   "version": "0.1",
   "manifest_version": 3,
   "permissions": ["scripting", "activeTab"],
