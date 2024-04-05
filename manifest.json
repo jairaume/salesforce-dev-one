@@ -2,8 +2,8 @@
   "name": "Salesforce Dev Console One",
   "version": "0.1",
   "manifest_version": 3,
-  "permissions": ["scripting", "activeTab"],
+  "permissions": ["scripting", "activeTab", "storage"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   }
 }

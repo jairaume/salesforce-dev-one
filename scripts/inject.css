@@ -1,0 +1,5 @@
+body.dev-console-one-theme {
+    .CodeMirror {
+        background:var(--bg);
+    }
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "One Dark Pro",
+        "colors": {
+            "bg": "#000000"
+        }
+    },
+    {
+        "name": "Dracula",
+        "colors": {
+            "bg": "#FF0000"
+        }
+    }
+]

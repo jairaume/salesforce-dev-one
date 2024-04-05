@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-width: 20rem;
+}
+main {
+  padding: 1rem 0.5rem;
+  display: grid;
+  place-items: center;
+}
+h1 {
+  margin: 0;
+}
+form {
+  display: grid;
+  width: 100%;
+  gap: 0.5rem;
+  justify-items: center;
+}
+select {
+  width: 100%;
+  padding: 0.5rem;
+}
