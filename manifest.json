@@ -5,5 +5,15 @@
   "permissions": ["scripting", "activeTab", "storage"],
   "action": {
     "default_popup": "popup/popup.html"
-  }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
+      "css": ["/scripts/inject.css"]
+    }
+  ]
 }
