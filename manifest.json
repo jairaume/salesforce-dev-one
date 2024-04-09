@@ -3,6 +3,7 @@
   "version": "0.1",
   "manifest_version": 3,
   "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
   "action": {
     "default_popup": "popup/popup.html"
   },

@@ -13,59 +13,45 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.storage.onChanged.addListener(handleChange)
 
-  
-chrome.tabs.onUpdated.addListener(handleChange);
+chrome.tabs.onUpdated.addListener(handleChange)
 
 async function handleChange(){
     console.log('Storage changed')
+    const tab = await getCurrentTab();
     chrome.storage.sync.get('state', (data) => {
         if(data.state){
             currentState.active = data.state.active;
             currentState.themeId = data.state.themeId;
         }
+        if(isCurrentTabAllowed(tab)){
+            applyCustomization(tab);
+        }
     });
-    const tab = await getCurrentTab();
-    if(isCurrentTabAllowed(tab)){
-        applyCustomization(currentState, tab);
+}
+
+function applyCustomization(tab) {
+    if(allowedUrl(tab.url)){
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            function: toggleTheme,
+            args: [currentState.active]
+        });
+        
+        chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            function: applyTheme,
+            args: [themes[currentState.themeId]]
+        });
     }
-}
-
-function applyCustomization(state, tab) {
-    if(state.active){
-        console.log('Applying customization')
-        activeChange(tab);
-        themeChange(tab);
-    }
-}
-
-
-// Activate or not the extension
-async function activeChange(tab){
-  if(allowedUrl(tab.url)){
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: toggleTheme,
-      args: [currentState.active]
-    });
-  }
-}
-
-// Change the theme
-async function themeChange(tab){
-  if(allowedUrl(tab.url) && currentState.active){
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: applyTheme,
-      args: [themes[currentState.themeId]]
-    });
-  }
 }
 
 // Activate or not the theming
 function toggleTheme(value) {
   if(value){
+    console.log("Adding theme")
     document.body.classList.add('dev-console-one-theme');
   } else {
+    console.log("Removing theme")
     document.body.classList.remove('dev-console-one-theme');
   }
 }

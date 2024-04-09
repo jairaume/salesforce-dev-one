@@ -18,9 +18,8 @@ window.onload = function() {
       currentState.themeId = data.state.themeId;
       currentState.themes = data.state.themes;
       initThemeOptions();
-      // Update the theme select options
-      checkbox.checked = currentState.active;
-      themeSelect.value = currentState.themeId;
+      // Update the UI
+      updateUI();
     }
   });
 }
@@ -56,7 +55,12 @@ chrome.storage.onChanged.addListener(()=>{
     if(data.state != currentState){
       currentState.active = data.state.active;
       currentState.themeId = data.state.themeId;
+      updateUI();
     }
   });
 })
 
+function updateUI(){
+  checkbox.checked = currentState.active;
+  themeSelect.value = currentState.themeId;
+}
