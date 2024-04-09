@@ -2,13 +2,24 @@
     {
         "name": "One Dark Pro",
         "colors": {
-            "bg": "#000000"
+            "bg-dark": "#21252b",
+            "bg-light": "#282c34",
+            "on-bg": "#d7dae0",
+            "green": "#7bc371",
+            "red": "#d56c6c",
+            "purple": "#c678dd",
+            "blue": "#61afd4",
+            "yellow": "#e5c07b",
+            "comment": "#7f848e",
+            "parenthesis": "#d18c4c"
         }
     },
     {
         "name": "Dracula",
         "colors": {
-            "bg": "#FF0000"
+            "bg-dark": "#282A36",
+            "bg-light": "#44475A",
+            "on-bg": "#F8F8F2"
         }
     }
 ]

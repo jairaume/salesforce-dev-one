@@ -1,5 +1,35 @@
 body.dev-console-one-theme {
-    .CodeMirror {
-        background:var(--bg);
+    .CodeMirror, .CodeMirror-gutters, .x-docked, .x-panel, .x-panel-body, .x-btn, .x-box-item, .x-toolbar-item, .x-tab{
+        background: var(--bg-light) !important;
+        border: none !important;
+    }
+    .x-toolbar {
+        background: var(--bg-dark) !important;
+        border: none !important;
+    }
+    *:not(pre) {
+        color: var(--on-bg) !important;
+    }
+    .CodeMirror-cursor {
+        border-left: 3px solid var(--blue) !important;
+        transition-duration: .05s;
+    }
+    pre{
+        color: var(--parenthesis) !important;
+        span.cm-string{
+            color: var(--green) !important;
+        }
+        span.cm-keyword{
+            color: var(--purple) !important;
+        }
+        span.cm-def{
+            color: var(--yellow) !important;
+        }
+        span.cm-word{
+            color: var(--red) !important;
+        }
+        span.cm-comment {
+            color: var(--comment) !important;
+        }
     }
 }
