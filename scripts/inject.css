@@ -145,7 +145,7 @@ body.dev-console-one-theme {
         background: var(--bg-selected) !important;
         color: var(--on-bg) !important;
     }
-    .x-form-arrow-trigger {
+    .x-form-arrow-trigger, .x-column-header-trigger {
         border: none !important;
         margin-left: var(--gap-small) !important;
         background: var(--on-bg) !important;
@@ -159,6 +159,10 @@ body.dev-console-one-theme {
         -webkit-mask-size: 100% 100%;
         mask-size: 100% 100%;
     }
+    .x-column-header-over {
+        border: none !important;
+        background: var(--bg-selected) !important;
+    }
 
     /*Inputs*/
     .x-form-field, .x-form-text {
@@ -168,6 +172,7 @@ body.dev-console-one-theme {
         border-radius: var(--radius-medium) !important;
         box-shadow: none !important;
     }
+
 
     /*Buttons*/
     .x-btn {
