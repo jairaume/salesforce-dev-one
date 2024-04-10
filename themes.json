@@ -4,12 +4,17 @@
         "colors": {
             "bg-dark": "#21252b",
             "bg-light": "#282c34",
+            "bg-selected": "#323842",
+            "selection": "#404859",
+            "bg-match": "#323741",
             "on-bg": "#d7dae0",
-            "green": "#7bc371",
-            "red": "#d56c6c",
-            "purple": "#c678dd",
-            "blue": "#61afd4",
-            "yellow": "#e5c07b",
+            "on-bg-secondary": "#8d8f93",
+            "line-number": "#364962",
+            "string": "#7bc371",
+            "word": "#d56c6c",
+            "keyword": "#c678dd",
+            "cursor": "#61afd4",
+            "def": "#e5c07b",
             "comment": "#7f848e",
             "parenthesis": "#d18c4c"
         }
