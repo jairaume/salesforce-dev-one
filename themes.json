@@ -22,9 +22,141 @@
     {
         "name": "Dracula",
         "colors": {
-            "bg-dark": "#282A36",
-            "bg-light": "#44475A",
-            "on-bg": "#F8F8F2"
+            "bg-dark": "#282a36",
+            "bg-light": "#282a36",
+            "bg-selected": "#44475a",
+            "selection": "#44475a",
+            "bg-match": "#44475a",
+            "on-bg": "#f8f8f2",
+            "on-bg-secondary": "#6272a4",
+            "line-number": "#6272a4",
+            "string": "#50fa7b",
+            "word": "#ff79c6",
+            "keyword": "#ff79c6",
+            "cursor": "#ff79c6",
+            "def": "#bd93f9",
+            "comment": "#6272a4",
+            "parenthesis": "#ff79c6"
+        }
+    },
+    {
+        "name": "Monokai",
+        "colors": {
+            "bg-dark": "#272822",
+            "bg-light": "#272822",
+            "bg-selected": "#49483e",
+            "selection": "#49483e",
+            "bg-match": "#49483e",
+            "on-bg": "#f8f8f2",
+            "on-bg-secondary": "#75715e",
+            "line-number": "#75715e",
+            "string": "#a6e22e",
+            "word": "#f92672",
+            "keyword": "#f92672",
+            "cursor": "#f92672",
+            "def": "#66d9ef",
+            "comment": "#75715e",
+            "parenthesis": "#f92672"
+        }
+    },
+    {
+        "name": "Nord",
+        "colors": {
+            "bg-dark": "#2e3440",
+            "bg-light": "#2e3440",
+            "bg-selected": "#3b4252",
+            "selection": "#3b4252",
+            "bg-match": "#3b4252",
+            "on-bg": "#d8dee9",
+            "on-bg-secondary": "#81a1c1",
+            "line-number": "#81a1c1",
+            "string": "#a3be8c",
+            "word": "#bf616a",
+            "keyword": "#81a1c1",
+            "cursor": "#81a1c1",
+            "def": "#88c0d0",
+            "comment": "#4c566a",
+            "parenthesis": "#81a1c1"
+        }
+    },
+    {
+        "name": "Gruvbox",
+        "colors": {
+            "bg-dark": "#282828",
+            "bg-light": "#282828",
+            "bg-selected": "#3c3836",
+            "selection": "#3c3836",
+            "bg-match": "#3c3836",
+            "on-bg": "#ebdbb2",
+            "on-bg-secondary": "#928374",
+            "line-number": "#928374",
+            "string": "#b8bb26",
+            "word": "#fb4934",
+            "keyword": "#fb4934",
+            "cursor": "#fb4934",
+            "def": "#83a598",
+            "comment": "#928374",
+            "parenthesis": "#fb4934"
+        }
+    },
+    {
+        "name": "Material",
+        "colors": {
+            "bg-dark": "#263238",
+            "bg-light": "#263238",
+            "bg-selected": "#37474f",
+            "selection": "#37474f",
+            "bg-match": "#37474f",
+            "on-bg": "#cfd8dc",
+            "on-bg-secondary": "#90a4ae",
+            "line-number": "#90a4ae",
+            "string": "#c3e88d",
+            "word": "#ff5370",
+            "keyword": "#ff5370",
+            "cursor": "#ff5370",
+            "def": "#82b1ff",
+            "comment": "#546e7a",
+            "parenthesis": "#ff5370"
+        }
+    },
+    {
+        "name": "Night Owl",
+        "colors": {
+            "bg-dark": "#011627",
+            "bg-light": "#011627",
+            "bg-selected": "#0d3b4a",
+            "selection": "#0d3b4a",
+            "bg-match": "#0d3b4a",
+            "on-bg": "#abb2bf",
+            "on-bg-secondary": "#5c6370",
+            "line-number": "#5c6370",
+            "string": "#addb67",
+            "word": "#ffcc66",
+            "keyword": "#ffcc66",
+            "cursor": "#ffcc66",
+            "def": "#82aaff",
+            "comment": "#637777",
+            "parenthesis": "#ffcc66"
+        }
+    },
+    {
+        "name": "Tokyo Night",
+        "colors": {
+            "bg-dark": "#1a1b26",
+            "bg-light": "#1a1b26",
+            "bg-selected": "#2a2d3a",
+            "selection": "#2a2d3a",
+            "bg-match": "#2a2d3a",
+            "on-bg": "#c0caf5",
+            "on-bg-secondary": "#6e7681",
+            "line-number": "#6e7681",
+            "string": "#f7768e",
+            "word": "#bd93f9",
+            "keyword": "#bd93f9",
+            "cursor": "#bd93f9",
+            "def": "#78dce8",
+            "comment": "#6e7681",
+            "parenthesis": "#bd93f9"
         }
     }
 ]
