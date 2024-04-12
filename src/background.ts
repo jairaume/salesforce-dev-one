@@ -31,7 +31,7 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.storage.onChanged.addListener(handleChange)
 
 chrome.tabs.onActivated.addListener((activeInfo) => {
-  console.log('Tab activated')
+  console.log('backgroundjs - Tab activated')
   chrome.tabs.get(activeInfo.tabId, (tab) => {
     if(isTabPermitted(tab)){
       applyCustomization(tab);
@@ -40,14 +40,14 @@ chrome.tabs.onActivated.addListener((activeInfo) => {
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
-  console.log('Tab updated')
+  console.log('backgroundjs - Tab updated')
   if(isTabPermitted(tab)){
     applyCustomization(tab);
   }
 })
 
 async function handleChange(){
-  console.log('Storage changed')
+  console.log('backgroundjs - Storage changed')
   const tab = await getCurrentTab();
   if(isTabPermitted(tab)){
     applyCustomization(tab);
@@ -59,7 +59,7 @@ function applyCustomization(tab: chrome.tabs.Tab) {
     if(tab.id !== undefined){
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        files: ['content_script.ts'],
+        files: ['js/content_script.js'],
       });
     }
   }

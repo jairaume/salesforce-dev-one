@@ -1,5 +1,6 @@
 export type Theme = {
     name: string
+    description?: string
     colors: {
         "bg-dark": string
         "bg-light": string
