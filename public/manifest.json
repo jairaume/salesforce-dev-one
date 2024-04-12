@@ -1,20 +1,21 @@
 {
   "name": "Salesforce Dev Console One",
+  "description": "Salesforce Dev Console One is a Chrome extension that enhances the Salesforce Developer Console with a more modern look and feel.",
   "version": "0.1",
   "manifest_version": 3,
   "permissions": ["scripting", "activeTab", "storage"],
   "host_permissions": ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
   "action": {
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup.html"
   },
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "js/background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
-      "css": ["/scripts/inject.css"]
+      "css": ["inject.css"],
+      "js": ["js/vendor.js", "js/content_script.js"]
     }
   ]
 }
