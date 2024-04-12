@@ -7,6 +7,7 @@
             "bg-selected": "#323842",
             "selection": "#404859",
             "bg-match": "#323741",
+            "on-bg-focused": "#DBDBDB",
             "on-bg": "#abb2b2",
             "on-bg-secondary": "#87898D",
             "line-number": "#364962",
