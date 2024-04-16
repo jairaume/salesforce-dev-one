@@ -21,3 +21,10 @@ export type Theme = {
         "number": string
     }
 }
+
+export type State = {
+    active: boolean;
+    animations: boolean;
+    themeId: number;
+    themes: Theme[];
+}

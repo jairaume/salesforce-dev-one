@@ -26,13 +26,14 @@
     --gap-medium: 8px;
 
     /* Durations */
+    
+    --width-cursor: 2px;
+}
+body.dev-console-one-theme.dev-console-one-animations {
     --duration-normal: 0.3s;
     --duration-fast: 0.2s;
     --duration-quick: 0.1s;
-
-    --width-cursor: 2px;
 }
-
 body.dev-console-one-theme {
     * {
         text-shadow: none !important;
@@ -79,6 +80,23 @@ body.dev-console-one-theme {
         background: var(--bg-dark) !important;
         border: none !important;
         box-shadow: none !important;
+    }
+    .x-column-header-sort-DESC, .x-column-header-sort-ASC {
+        .x-column-header-text {
+            background: none !important;
+        }
+    }
+    .x-column-header-sort-DESC .x-column-header-text:after {
+        content: "▼";
+        color: var(--on-bg) !important;
+        font-size: 80% !important;
+        margin-left: var(--gap-very-small) !important;
+    }
+    .x-column-header-sort-ASC .x-column-header-text:after {
+        content: "▲";
+        color: var(--on-bg) !important;
+        font-size: 80% !important;
+        margin-left: var(--gap-very-small) !important;
     }
     .x-window-body {
         background: none !important;
@@ -137,6 +155,9 @@ body.dev-console-one-theme {
         padding-right: 2.2em !important;
         .x-tab-inner {
             padding-left: 1ch !important;
+        }
+        em {
+            padding-right: 0 !important;
         }
     }
     .x-tab.x-tab-active {
@@ -199,6 +220,12 @@ body.dev-console-one-theme {
             }
         }
     }
+    #editors-body{
+        .x-box-inner, .x-toolbar {
+            background: var(--bg-light) !important;
+            padding-top: var(--gap-very-small) !important;
+        }
+    } 
 
     /* Menu toolbar */
     .x-menu-icon-separator {
@@ -207,7 +234,6 @@ body.dev-console-one-theme {
     .x-panel, .x-panel-body {
         border : none !important;
         background: var(--bg-dark) !important;
-        padding-bottom: 1px !important;
     }
     .x-panel.x-menu {
         overflow: hidden !important;
@@ -402,6 +428,38 @@ body.dev-console-one-theme {
 
     #queryEditorText {
         border-bottom: 1px solid var(--bg-dark) !important;
+    }
+
+    #bottomPanel-splitter {
+        .x-collapse-el {
+            background: var(--bg-selected) !important;
+            border-top-left-radius: var(--radius-medium) !important;
+            border-top-right-radius: var(--radius-medium) !important;
+        }
+        .x-collapse-el:after {
+            content: '…';
+            font-size: 15px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -57%);
+            color: var(--on-bg) !important;
+        }
+    }
+    #bottomPanel-splitter:not(.x-splitter-collapsed){
+        border-bottom: 1.5px solid var(--selection) !important;
+    }
+    #bottomPanel .x-horizontal-box-overflow-body {
+        background: var(--bg-light) !important;
+        .x-tab {
+            background: none !important;
+        }
+    }
+
+    #bottomPanel-placeholder {
+        box-shadow: none !important;
+        background: var(--bg-dark) !important;
+        border: none !important;
     }
 
     /*Buttons*/

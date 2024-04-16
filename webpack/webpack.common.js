@@ -2,6 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const srcDir = path.join(__dirname, "..", "src");
+const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
     entry: {
@@ -28,6 +30,22 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
+            {
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                indent: "postcss",
+                                plugins: [tailwindcss, autoprefixer],
+                            },
+                        },
+                    },
+                ],
+                test: /\.css$/i,
+            },
         ],
     },
     resolve: {
@@ -39,4 +57,4 @@ module.exports = {
             options: {},
         }),
     ],
-};
+};        
