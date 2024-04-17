@@ -57,7 +57,13 @@ const Popup = () => {
   return (
     <main className="dark:bg-gray-950 dark:text-neutral-200 p-3 px-5 grid gap-3 relative">
       <span className={"absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 w-1/2 h-1/2 blur-[80px] opacity-80 duration-500 pointer-events-none z-0 "+(state.active &&"bg-[--accent-color]")}>&nbsp;</span>
-      <h1 className="text-2xl z-10">Salesforce Dev <span className={"font-bold duration-300 "+(state.active && "text-[--accent-color]")}>One</span></h1>
+
+      <div className="inline-flex items-center gap-3 z-10">
+        <Icon icon="simple-icons:salesforce" className="text-2xl"/>
+        <h1 className="text-2xl">
+          Dev <span className={"font-bold duration-300 "+(state.active && "text-[--accent-color]")}>One</span>
+        </h1>
+      </div>
       {
         isLoading ? 
           <p>Loading...</p> 
@@ -114,7 +120,7 @@ const Popup = () => {
         )
       }
       <footer className="mt-2">
-        <p className="text-[10px] text-center font-semibold dark:text-neutral-500">Made with ❤️ by <a title="Jairaume" href="https://www.rasclejero.me" className="underline hover:text-[--accent-color]">jairaume</a></p>
+        <p className="text-[10px] text-center font-semibold dark:text-neutral-500">Made with ❤️ by <a title="Jairaume" href="https://www.rasclejero.me" className="underline hover:text-[--accent-color]" target="_blank">jairaume</a></p>
       </footer>
     </main>
   )

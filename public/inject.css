@@ -213,11 +213,18 @@ body.dev-console-one-theme {
                 padding: 0 !important;
             }
         }
-        .x-btn:hover {
+        .x-btn:not(.x-disabled):hover{
             background: var(--bg-selected) !important;
             .x-btn-inner{
                 color: var(--on-bg) !important;
             }
+        }
+    }
+    .x-toolbar:not(.topLevelToolbar) .x-btn {
+        background: var(--bg-selected) !important;
+        color: var(--on-bg-focused) !important;
+        &:hover {
+            background: var(--selection) !important;        
         }
     }
     #editors-body{
@@ -361,6 +368,7 @@ body.dev-console-one-theme {
         border: none !important;
         margin: 0 !important;
         padding: var(--gap-small) !important;
+        transition-duration: var(--duration-fast);
     }
     .x-boundlist-item:hover:not(.x-boundlist-selected){
         color: var(--on-bg) !important;
@@ -417,6 +425,7 @@ body.dev-console-one-theme {
     }
     .x-form-checkbox {
         background: var(--bg-selected) !important;
+        transition-duration: var(--duration-fast);
     }
     .x-form-checkbox:hover {
         background: var(--line-number) !important;
@@ -469,10 +478,26 @@ body.dev-console-one-theme {
         border: none !important;
         border-radius: var(--radius-medium) !important;
         box-shadow: none !important;
+        transition: var(--duration-fast);
     }
-    .x-btn:hover {
+    .x-btn:not(.x-disabled):hover {
         background: var(--bg-selected) !important;
         color: var(--on-bg) !important;
+    }
+    .x-btn #backButton-btnInnerEl, .x-btn #forwardButton-btnInnerEl {
+        color: transparent !important;
+        &:after {
+            content: '🡠';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -45%);
+            color: var(--on-bg);
+            font-size: 1em;
+        }
+    }
+    .x-btn #forwardButton-btnInnerEl:after {
+        content: '🡢';
     }
 
     .x-tool:has(.x-tool-pin, .x-tool-unpin) {
@@ -497,6 +522,7 @@ body.dev-console-one-theme {
         -webkit-mask-size: 100% 100%;
         mask-size: 100% 100%;
         pointer-events: none;
+        transition-duration: var(--duration-fast);
     }
     .x-tool:has(.x-tool-pin, .x-tool-unpin):hover:after {
         background: var(--on-bg-focused);
@@ -529,6 +555,7 @@ body.dev-console-one-theme {
         -webkit-mask-size: 100% 100%;
         mask-size: 100% 100%;          
         pointer-events: none;
+        transition-duration: var(--duration-fast);
     }
     .x-tool:has(.x-tool-down, .x-tool-expand-top):hover::after {
         background: var(--on-bg-focused);
@@ -549,6 +576,7 @@ body.dev-console-one-theme {
     }
     .x-tool-close:hover {
         background: var(--color-red) !important;
+        transition-duration: var(--duration-fast);
     }
 
     .x-css-shadow {

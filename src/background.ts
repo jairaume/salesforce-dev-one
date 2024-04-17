@@ -48,6 +48,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
 
 async function handleChange(){
   console.log('backgroundjs - Storage changed')
+  toggleBadge();
   const tab = await getCurrentTab();
   if(isTabPermitted(tab)){
     applyCustomization(tab);
@@ -63,4 +64,24 @@ function applyCustomization(tab: chrome.tabs.Tab) {
       });
     }
   }
+}
+
+function toggleBadge() {
+  chrome.storage.sync.get('state', (data) => {
+    const state = data.state;
+    if(state.active){
+      setBadgeOn(state.themes[state.themeId].colors.word);
+    } else {
+      setBadgeOff();
+    }
+  });
+}
+
+function setBadgeOn(color: string){
+  chrome.action.setBadgeBackgroundColor({color: color});
+  chrome.action.setBadgeText({text: ' '});
+}
+
+function setBadgeOff(){
+  chrome.action.setBadgeText({text: ''});
 }
