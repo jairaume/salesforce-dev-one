@@ -48,7 +48,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=>{
 
 async function handleChange(){
   console.log('backgroundjs - Storage changed')
-  toggleBadge();
   const tab = await getCurrentTab();
   if(isTabPermitted(tab)){
     applyCustomization(tab);
@@ -58,6 +57,7 @@ async function handleChange(){
 function applyCustomization(tab: chrome.tabs.Tab) {
   if(allowedUrl(tab.url)){
     if(tab.id !== undefined){
+      toggleBadge();
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         files: ['js/content_script.js'],
