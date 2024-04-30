@@ -11,6 +11,7 @@
     --icon-caret-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='m216.49 104.49l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 0 1 17-17L128 159l71.51-71.52a12 12 0 0 1 17 17Z'/%3E%3C/svg%3E");
     --icon-pin : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m21.068 7.758l-4.826-4.826a2.75 2.75 0 0 0-4.404.715l-2.435 4.87a.75.75 0 0 1-.426.374l-4.166 1.44a1.25 1.25 0 0 0-.476 2.065L7.439 15.5L3 19.94V21h1.06l4.44-4.44l3.105 3.105a1.25 1.25 0 0 0 2.065-.476l1.44-4.166a.75.75 0 0 1 .373-.426l4.87-2.435a2.75 2.75 0 0 0 .715-4.404'/%3E%3C/svg%3E");
     --icon-double-caret-down : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M216.49 127.51a12 12 0 0 1 0 17l-80 80a12 12 0 0 1-17 0l-80-80a12 12 0 1 1 17-17L128 199l71.51-71.52a12 12 0 0 1 16.98.03m-97 17a12 12 0 0 0 17 0l80-80a12 12 0 0 0-17-17L128 119L56.49 47.51a12 12 0 0 0-17 17Z'/%3E%3C/svg%3E");
+    --icon-arrow-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M13.705 4.284A1 1 0 1 0 12.3 5.708L17.67 11H4a1 1 0 1 0 0 2h13.665L12.3 18.285a1 1 0 0 0 1.403 1.424l6.925-6.822a1.25 1.25 0 0 0 0-1.78z'/%3E%3C/svg%3E");
 
     --shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
     --shadow-close: 0 0 5px rgba(0, 0, 0, .25);
@@ -486,18 +487,28 @@ body.dev-console-one-theme {
     }
     .x-btn #backButton-btnInnerEl, .x-btn #forwardButton-btnInnerEl {
         color: transparent !important;
+        position: relative;
         &:after {
-            content: '🡠';
             position: absolute;
-            top: 50%;
             left: 50%;
-            transform: translate(-50%, -45%);
-            color: var(--on-bg);
+            top: 50%;
+            transform: translate(-50%, -50%);
+            content: '';
+            background-color: var(--on-bg);
+            width: 1em;
+            height: 1em;
             font-size: 1em;
+            display: inline-block;    
+            -webkit-mask-image: var(--icon-arrow-right);
+            mask-image: var(--icon-arrow-right);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%; 
         }
     }
-    .x-btn #forwardButton-btnInnerEl:after {
-        content: '🡢';
+    .x-btn #backButton-btnInnerEl {
+        transform: rotate(180deg);
     }
 
     .x-tool:has(.x-tool-pin, .x-tool-unpin) {
