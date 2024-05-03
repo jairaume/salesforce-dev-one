@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { createRoot } from "react-dom/client";
-import { Icon } from '@iconify-icon/react';
-import { State } from "./types";
-import "./tailwind.css";
+import { Icon } from "@iconify/react";
+import { State } from "@/types";
 
 const baseState: State = {
   active: false, 
@@ -12,26 +10,26 @@ const baseState: State = {
 };
 
 
-const Popup = () => {
+const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [state, setState] = useState<State>(baseState);
   const [accentColor, setAccentColor] = useState<string>("");
 
   useEffect(() => {
-    chrome.storage.sync.get('state', (data) => {
+    browser.storage.sync.get('state').then((data) => {
       setState({...baseState, ...data.state} || baseState);
       setIsLoading(false);
     });
   }, []);
 
   const themeOptions = state?.themes.map((theme, index) => (
-    <option key={index} value={index} className="dark:bg-neutral-950" style={{color:theme.colors.word}}>{theme.name}</option>
+    <option key={index} value={index} className="dark:bg-neutral-950" style={{color:theme?.colors?.word}}>{theme?.name}</option>
   ));
   
   useEffect(() => {
     if(isLoading) return;
-    chrome.storage.sync.set({state: state});
-    setAccentColor(state.themes[state.themeId].colors.word);
+    browser.storage.sync.set({state: state});
+    setAccentColor(state?.themes[state.themeId]?.colors.word);
   }, [state]);
 
   useEffect(() => {
@@ -79,18 +77,20 @@ const Popup = () => {
             <div className={"duration-300 grid gap-1 " + (!state.active && "opacity-30")}>
               <label className="text-base inline-flex items-center gap-2" htmlFor="theme-select">
                 <Icon icon="streamline:paintbrush-2-solid" className="text-sm"/>
-                <p>Choose a theme</p>
+                <p>Theme</p>
               </label>
 
-              <select 
-                className="rounded-md p-1 border-2 dark:bg-neutral-950 hover:dark:bg-neutral-800 dark:text-white dark:border-neutral-700 hover:dark:border-neutral-600 focus:dark:border-neutral-500 focus:outline-none duration-300 hover:border-neutral-300 focus:border-neutral-400"
-                id="theme" 
-                value={state.themeId} 
-                disabled={!state.active}
-                onChange={handleThemeSelect}
-              >
-                {themeOptions}
-              </select>
+              <div className="relative before:absolute before:left-3 before:top-1/2 before:-translate-y-1/2 before:size-2 before:rounded-full before:bg-[--accent-color] before:ring dark:before:ring-neutral-700 before:ring-neutral-200 before:duration-300">
+                <select 
+                  className="w-full p-1 pl-6 rounded-md border-2 dark:bg-neutral-950 hover:dark:bg-neutral-800 dark:text-white dark:border-neutral-700 hover:dark:border-neutral-600 focus:dark:border-neutral-500 focus:outline-none duration-300 hover:border-neutral-300 focus:border-neutral-400"
+                  id="theme" 
+                  value={state.themeId} 
+                  disabled={!state.active}
+                  onChange={handleThemeSelect}
+                  >
+                  {themeOptions}
+                </select>
+                </div>
 
               <p className="text-neutral-500 text-[10px] text-center">
                 {state.themes[state.themeId]?.description}
@@ -133,10 +133,4 @@ const Popup = () => {
   )
 };
 
-const root = createRoot(document.getElementById("root")!);
-
-root.render(
-  <React.StrictMode>
-    <Popup />
-  </React.StrictMode>
-);
+export default App;

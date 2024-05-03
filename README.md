@@ -1,5 +1,3 @@
-# 👨🏻‍💻 Salesforce Dev Console One
+# WXT + React
 
-> Extension to enhance the Salesforce web developer console interface.
-
-*Coming soon...*
+This template should help get you started developing with React in WXT.
