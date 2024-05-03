@@ -1,43 +1,37 @@
 {
-  "name": "salesforce-dev-console-one",
-  "version": "1.0.0",
-  "description": "Chrome Extension allowing Salesforce developers to supercharge Salesforce's web developer console.",
-  "homepage": "TODO",
-  "main": "background.js",
-  "scripts": {
-    "watch": "webpack --config webpack/webpack.dev.js --watch",
-    "build": "webpack --config webpack/webpack.prod.js",
-    "clean": "rimraf dist",
-    "style": "prettier --write \"src/**/*.{ts,tsx}\""
+  "name": "salesforce-dev-one",
+  "description": "Salesforce™ Dev Console One is a Chrome extension that enhances the Salesforce Developer Console with a more modern look and feel.",
+  "author": {
+    "name": "Jérôme Rascle",
+    "email": "contact@rasclejero.me",
+    "url": "https://rasclejero.me"
   },
-  "keywords": [
-    "chrome-extension"
-  ],
-  "author": "jairaume",
-  "license": "ISC",
+  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "compile": "tsc --noEmit",
+    "postinstall": "wxt prepare"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@iconify-icon/react": "^2.1.0",
-    "@types/chrome": "0.0.158",
-    "@types/react": "^18.2.77",
-    "@types/react-dom": "^18.2.25",
+    "@iconify/react": "^4.1.1",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
-    "copy-webpack-plugin": "^9.0.1",
-    "css-loader": "^7.1.1",
-    "glob": "^7.1.6",
     "postcss": "^8.4.38",
-    "postcss-loader": "^8.1.1",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2 ",
-    "style-loader": "^4.0.0",
     "tailwindcss": "^3.4.3",
-    "ts-loader": "^8.0.0",
-    "typescript": "^5.0.4",
-    "webpack": "^5.76.0",
-    "webpack-cli": "^4.0.0",
-    "webpack-merge": "^5.0.0"
+    "typescript": "^5.3.3",
+    "wxt": "^0.17.0"
   }
 }
