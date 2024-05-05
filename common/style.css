@@ -33,3 +33,8 @@ label input:checked + div.switch{
   @apply bg-[--accent-color] ring-0 active:before:translate-x-1 hover:before:bg-neutral-200 dark:hover:before:bg-neutral-800
   before:translate-x-2 before:bg-white dark:before:bg-neutral-950 before:scale-150;
 }
+
+button.btn {
+  @apply px-2 py-1 text-xs font-semibold text-center rounded-md bg-neutral-50 shadow-sm border-2 border-neutral-200 duration-200
+  hover:border-[--accent-color] hover:shadow-lg;
+}

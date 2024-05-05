@@ -24,7 +24,6 @@ export type Theme = {
 
 export type State = {
     active: boolean;
-    panel?: boolean;
     animations: boolean;
     themeId: number;
     themes: Theme[];

@@ -9,7 +9,7 @@ export default defineBackground(() => {
     active: false,
     themeId: 0,
     themes: themes,
-    animations: false
+    animations: false,
   }
 
   // Return the current tab
@@ -30,30 +30,22 @@ export default defineBackground(() => {
 
   browser.storage.onChanged.addListener(handleChange)
 
-  browser.tabs.onActivated.addListener((activeInfo) => {
-    browser.tabs.get(activeInfo.tabId).then((tab) => {
-      applyBadge(tab);
-    });
-  });
+  browser.tabs.onActivated.addListener(handleChange);
 
-  browser.tabs.onUpdated.addListener((tab)=>{
-    applyBadge(tab);
-  })
+  browser.tabs.onUpdated.addListener(handleChange)
 
   async function handleChange(){
     const tab = await getCurrentTab();
-    applyBadge(tab);
+    const data = await browser.storage.sync.get('state')
+    applyBadge(tab, data.state);
   }
 
-  function applyBadge(tab: any) {
-    browser.storage.sync.get('state').then((data) => {
-      const state = data.state;
-      if(state.active && allowedUrl(tab.url) && tab.id !== undefined){
-        setBadgeOn(state.themes[state.themeId].colors.word);
-      } else {
-        setBadgeOff();
-      }
-    });
+  function applyBadge(tab: any, state: State) {
+    if(state.active && allowedUrl(tab.url) && tab.id !== undefined){
+      setBadgeOn(state.themes[state.themeId].colors.word);
+    } else {
+      setBadgeOff();
+    }
   }
 
   function setBadgeOn(color: string){

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEventHandler, useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { State } from "@/types";
 
@@ -47,6 +47,12 @@ const App = () => {
     setState({...state, animations: e.target.checked});
   }
 
+  const handlePanel = ()=>{
+    browser.tabs.query({ currentWindow: true, active: true }).then((tabs)=> {
+      browser.sidePanel.open({windowId: tabs[0].windowId});
+    })
+  }
+
   const handleThemeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if(!state) return;
     setState({...state, themeId: parseInt(e.target.value)});
@@ -87,7 +93,7 @@ const App = () => {
                   value={state.themeId} 
                   disabled={!state.active}
                   onChange={handleThemeSelect}
-                  >
+                >
                   {themeOptions}
                 </select>
                 </div>
@@ -100,7 +106,7 @@ const App = () => {
             <div className="pt-3 duration-300" style={{opacity: !state.active ? .3 : 1}}>
               <h2 className="font-semibold text-neutral-600 dark:text-neutral-400">Additional options</h2>
               
-              <div className="pl-2 pt-2 space-y-1">
+              <div className="pl-2 pt-2 space-y-3">
                 <label className="text-base flex justify-between gap-3 items-center" htmlFor="animationsCheckbox">
                   <div className="inline-flex items-center gap-2">
                     <Icon icon="material-symbols:animation"/>
@@ -110,17 +116,12 @@ const App = () => {
                   <div className="switch"></div>
                 </label>
 
-                {state.panel && (
-                  <label className="text-base flex justify-between gap-3 items-center" htmlFor="animationsCheckbox">
-                  <div className="inline-flex items-center gap-2">
-                    <Icon icon="fluent:panel-right-32-filled"/>
-                    <p>Side Panel</p>
-                  </div>
-                  <input type="checkbox" disabled={!state.active} id="animationsCheckbox" checked={state.animations} onChange={handleAnimationsCheckbox}/>
-                  <div className="switch"></div>
-                </label>
-                )}
-
+                <div className="text-base inline-flex items-center gap-2">
+                  <Icon icon="fluent:panel-right-32-filled"/>
+                  <button onClick={()=>{handlePanel()}} className="btn" disabled={!state.active}>
+                    <p>Open Side-Panel</p>
+                  </button>
+                </div>
               </div>
             </div>
           </form>
