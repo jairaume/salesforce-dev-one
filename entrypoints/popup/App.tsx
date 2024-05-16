@@ -1,6 +1,7 @@
-import React, { ChangeEventHandler, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { State } from "@/types";
+import Header from "@/components/Header";
 
 const baseState: State = {
   active: false, 
@@ -59,15 +60,11 @@ const App = () => {
   }
 
   return (
-    <main className="bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 p-3 px-5 grid gap-3 relative">
+    <main className="font-poppins bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 p-3 px-5 grid gap-3 relative">
       <span className={"absolute dark:top-0 dark:left-0 bottom-0 left-full -translate-x-1/3 -translate-y-1/3 w-1/2 h-1/2 blur-[80px] opacity-80 duration-500 pointer-events-none z-0 "+(state.active &&"bg-[--accent-color]")}>&nbsp;</span>
 
-      <div className="inline-flex items-center gap-3 z-10">
-        <Icon icon="simple-icons:salesforce" className={"text-2xl duration-500 "+(state.active && "text-[--accent-color]")}/>
-        <h1 className="text-2xl">
-          Dev <span className={"font-bold duration-300 "+(state.active && "text-[--accent-color]")}>One</span>
-        </h1>
-      </div>
+      <Header colored={state.active} />
+      
       {
         isLoading ? 
           <p>Loading...</p> 
