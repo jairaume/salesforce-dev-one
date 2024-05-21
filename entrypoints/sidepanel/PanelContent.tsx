@@ -37,20 +37,22 @@ const files: TreeFile[] = [{
 const PanelContent  = ()=>{
     const { palette } = useTheme()
 
+    const handler = (path: string) => console.log(path)
+
     return(
-        <Page style={{ backgroundColor: palette.background }} className='!w-full'>
+        <Page style={{ backgroundColor: palette.background }} className='!w-full !py-4'>
             <Page.Header>
-                <Header colored={false}/>
+                <Header colored={true}/>
             </Page.Header>
 
             <Page.Content>
-                <Tree value={files}/>
+                <Tree value={files} onClick={handler}/>
             </Page.Content>
 
             <Page.Footer className='left-0'>
                 <Grid.Container className='px-4 py-2'>
                     <Grid>
-                        <Button>
+                        <Button placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                             Open File
                         </Button>
                     </Grid>

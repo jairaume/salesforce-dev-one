@@ -34,7 +34,6 @@ const App = () => {
   }, [state]);
 
   useEffect(() => {
-    // set css variable accent-color
     document.documentElement.style.setProperty('--accent-color', accentColor);
   }, [accentColor]);
 
@@ -50,6 +49,7 @@ const App = () => {
 
   const handlePanel = ()=>{
     browser.tabs.query({ currentWindow: true, active: true }).then((tabs)=> {
+      // @ts-ignore
       browser.sidePanel.open({windowId: tabs[0].windowId});
     })
   }

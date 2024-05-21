@@ -41,7 +41,7 @@ export default defineBackground(() => {
   }
 
   function applyBadge(tab: any, state: State) {
-    if(state.active && allowedUrl(tab.url) && tab.id !== undefined){
+    if(state.active && allowedUrl(tab?.url) && tab.id !== undefined){
       setBadgeOn(state.themes[state.themeId].colors.word);
     } else {
       setBadgeOff();
