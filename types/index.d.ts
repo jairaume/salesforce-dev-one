@@ -27,4 +27,21 @@ export type State = {
     animations: boolean;
     themeId: number;
     themes: Theme[];
+    files: {
+        apexClasses: boolean
+    };
+}
+
+export type Files = {
+    apexClasses: {
+        fetched: boolean
+        files: File[]
+    }
+}
+
+export type File = {
+    id: string
+    name: string
+    type: string
+    url: string
 }
