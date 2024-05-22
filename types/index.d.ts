@@ -27,15 +27,12 @@ export type State = {
     animations: boolean;
     themeId: number;
     themes: Theme[];
-    files: {
-        apexClasses: boolean
-    };
 }
 
 export type Files = {
     apexClasses: {
-        fetched: boolean
-        files: File[]
+        name: string
+        files:File[]
     }
 }
 

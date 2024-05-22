@@ -12,17 +12,14 @@ export default defineBackground(() => {
 		active: false,
 		themeId: 0,
 		themes: themes,
-		animations: false,
-		files: {
-			apexClasses: false,
-		},
+		animations: false
 	};
 
 	const initFiles: Files = {
 		apexClasses: {
-			fetched: false,
-			files: [],
-		},
+      name: "Apex Classes",
+      files: []
+    }
 	};
 
 	// Return the current tab
@@ -65,12 +62,14 @@ export default defineBackground(() => {
 					const responseBody = await response.text();
 					try {
 						const json = JSON.parse(responseBody);
+            console.log(json)
 						if (json.size && json.size > 0 && json.records && json.records.length > 0) {
 							const files = json.records.map((record: any) => {
 								return {
 									id: record.Id,
 									name: record.Name,
 									url: record.attributes.url,
+                  type: ".cls"
 								};
 							});
 							const data = await browser.storage.sync.get("files");
