@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         pixel: ['pixel, sans-serif'],
-        poppins: ['poppins, sans-serif'],
+        rubik: ['Rubik, sans-serif'],
       }
     },
   },
