@@ -63,7 +63,7 @@ const PanelContent = () => {
 					<Tree initialExpand={true}>
 						{sfFiles &&
 							Object.entries(sfFiles).map(([name, directory]) => {
-								return (
+								return (directory.files.length > 0) && (
 									<Tree.Folder key={name} name={directory.name} extra={`${directory.files.length} files`}>
 										{directory.files?.map((f) => {
 											return (

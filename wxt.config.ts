@@ -8,7 +8,7 @@ export default defineConfig({
   }),
   manifest: {
     name: "Salesforce™ Dev One",
-    permissions: ['storage', 'activeTab', 'scripting', 'sidePanel', 'webRequest'],
+    permissions: ['storage', 'activeTab', 'scripting', 'webRequest'],
     host_permissions: ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
   }
 });
