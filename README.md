@@ -2,6 +2,10 @@
 
 > A Chrome extension that transforms Salesforce's Developer Console into a more modern and user-friendly IDE.
 
+## Demo 
+
+![Salesforce Dev One Demo](https://github.com/jairaume/salesforce-dev-console-one/assets/60481472/c073da39-2c3b-4f36-9039-1a07f2768769)
+
 ## Features
 - 🎨 Numerous themes to choose from
 - 🏃‍♂️ Added animations
