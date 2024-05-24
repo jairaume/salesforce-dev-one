@@ -24,8 +24,21 @@ export type Theme = {
 
 export type State = {
     active: boolean;
-    panel?: boolean;
     animations: boolean;
     themeId: number;
     themes: Theme[];
+}
+
+export type Files = {
+    apexClasses: {
+        name: string
+        files:File[]
+    }
+}
+
+export type File = {
+    id: string
+    name: string
+    type: string
+    url: string
 }
