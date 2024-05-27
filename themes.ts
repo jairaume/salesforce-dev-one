@@ -140,7 +140,7 @@ export const themes: Theme[] = [
 	},
 	{
 		name: "Monochrome",
-		description: "🌑 If black and white is all you need",
+		description: "🎱 If black and white is all you need",
 		colors: {
 			"bg-dark": "#141414",
 			"bg-light": "#1f1f1f",
@@ -175,7 +175,7 @@ export const themes: Theme[] = [
 			"on-bg-secondary": "#5B5A58",
 			"line-number": "#5B5A58",
 			string: "#40C066",
-			word: "#FFCC66",
+			word: "#d1941a",
 			keyword: "#CC66FF",
 			cursor: "#2F2E2C",
 			def: "#40C066",
@@ -186,7 +186,7 @@ export const themes: Theme[] = [
 	},
 	{
 		name: "Oceanic Dreams",
-		description: "🛟 20,000 Leagues under the sea",
+		description: "🦑 20,000 Leagues under the sea",
 		colors: {
 			"bg-dark": "#03202f",
 			"bg-light": "#052938",

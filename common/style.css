@@ -6,8 +6,8 @@
 
 @font-face { 
   font-family: "pixel"; 
-  src: url("./assets/fonts/Pixel.woff2") format("woff2"), 
-       url("./assets/fonts/Pixel.woff") format("woff"); 
+  src: url("/assets/fonts/Pixel.woff2") format("woff2"), 
+       url("/assets/fonts/Pixel.woff") format("woff"); 
 } 
 
 
