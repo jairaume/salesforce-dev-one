@@ -1,6 +1,11 @@
 # ☁️ Salesforce Dev One
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/salesforce-dev-one/jedmkdahceaanphkkgcpomolecpijici?hl=fr">
+    <img src="https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" width="25%"/>
+  </a>
+</p>
 
-> A Chrome extension that transforms Salesforce's Developer Console into a more modern and user-friendly IDE.
+> A **Chrome extension** that transforms **Salesforce**'s Developer Console into a more **modern** and **user-friendly IDE**.
 
 ## Demo 
 
