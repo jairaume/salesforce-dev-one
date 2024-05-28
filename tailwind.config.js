@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         pixel: ['pixel, sans-serif'],
-        rubik: ['Rubik, sans-serif'],
+        geist: ['Geist, sans-serif'],
       }
     },
   },

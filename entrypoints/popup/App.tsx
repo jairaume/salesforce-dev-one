@@ -63,7 +63,7 @@ const App = () => {
 	};
 
 	return (
-		<main className="font-rubik bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 p-3 px-5 grid gap-3 relative">
+		<main className="font-geist bg-neutral-100 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 p-3 px-5 grid gap-3 relative overflow-hidden max-w-[15rem]">
 			<span
 				className={
 					"absolute dark:top-0 dark:left-0 bottom-0 left-full -translate-x-1/3 -translate-y-1/3 w-1/2 h-1/2 blur-[80px] opacity-80 duration-500 pointer-events-none z-0 " +
