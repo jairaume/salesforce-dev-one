@@ -86,13 +86,15 @@ export default defineBackground(() => {
 			return { cancel: false };
 		},
 		{ urls: ["<all_urls>"] },
-		["requestHeaders", "extraHeaders"]
+		["requestHeaders"]
 	);
 
 	async function handleChange() {
 		const tab = await getCurrentTab();
 		const data = await browser.storage.sync.get("state");
-		applyBadge(tab, data.state);
+		if(!import.meta.env.FIREFOX){
+			applyBadge(tab, data.state);
+		}
 	}
 
 	function applyBadge(tab: any, state: State) {
