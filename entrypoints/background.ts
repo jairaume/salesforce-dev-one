@@ -1,6 +1,8 @@
 import { themes } from "@/themes";
 import { Files, State } from "@/types";
 
+const SIDEPANEL_ACTIVE = false;
+
 export default defineBackground(() => {
 	console.log("Hello background!", { id: browser.runtime.id });
 	const DEV_CONSOLE_URL = "salesforce.com/_ui/common/apex/debug/ApexCSIPage";
@@ -12,14 +14,14 @@ export default defineBackground(() => {
 		active: false,
 		themeId: 0,
 		themes: themes,
-		animations: false
+		animations: false,
 	};
 
 	const initFiles: Files = {
 		apexClasses: {
-      name: "Apex Classes",
-      files: []
-    }
+			name: "Apex Classes",
+			files: [],
+		},
 	};
 
 	// Return the current tab
@@ -44,55 +46,57 @@ export default defineBackground(() => {
 	browser.tabs.onActivated.addListener(handleChange);
 
 	browser.tabs.onUpdated.addListener(handleChange);
-	browser.webRequest.onSendHeaders.addListener(
-		async (details) => {
-			// Ignore the request if it has the unique identifier
-			if (details.requestHeaders?.find((header) => header.name === UNIQUE_ID)) return;
-			
-			if (details.url.indexOf(APEX_CLASS_REQUEST) !== -1) {
-				const req: Request = new Request(details.url);
-				details.requestHeaders?.forEach((header) => {
-					if (header.value !== undefined) {
-						return req.headers.append(header.name, header.value);
-					}
-				});
-				req.headers.append(UNIQUE_ID, "true");
-				const response = await fetch(req);
-				if (response.ok) {
-					const responseBody = await response.text();
-					try {
-						const json = JSON.parse(responseBody);
-            console.log(json)
-						if (json.size && json.size > 0 && json.records && json.records.length > 0) {
-							const files = json.records.map((record: any) => {
-								return {
-									id: record.Id,
-									name: record.Name,
-									url: record.attributes.url,
-                  type: ".cls"
-								};
-							});
-							const data = await browser.storage.sync.get("files");
-							data.files.apexClasses.files = files;
-							await browser.storage.sync.set({ files: data.files });
+	if (SIDEPANEL_ACTIVE) {
+		browser.webRequest.onSendHeaders.addListener(
+			async (details) => {
+				// Ignore the request if it has the unique identifier
+				if (details.requestHeaders?.find((header) => header.name === UNIQUE_ID)) return;
+
+				if (details.url.indexOf(APEX_CLASS_REQUEST) !== -1) {
+					const req: Request = new Request(details.url);
+					details.requestHeaders?.forEach((header) => {
+						if (header.value !== undefined) {
+							return req.headers.append(header.name, header.value);
 						}
-					} catch (e) {
-						console.error(e)
+					});
+					req.headers.append(UNIQUE_ID, "true");
+					const response = await fetch(req);
+					if (response.ok) {
+						const responseBody = await response.text();
+						try {
+							const json = JSON.parse(responseBody);
+							console.log(json);
+							if (json.size && json.size > 0 && json.records && json.records.length > 0) {
+								const files = json.records.map((record: any) => {
+									return {
+										id: record.Id,
+										name: record.Name,
+										url: record.attributes.url,
+										type: ".cls",
+									};
+								});
+								const data = await browser.storage.sync.get("files");
+								data.files.apexClasses.files = files;
+								await browser.storage.sync.set({ files: data.files });
+							}
+						} catch (e) {
+							console.error(e);
+						}
+					} else {
+						console.log("Request failed, making the request again...");
 					}
-				} else {
-					console.log("Request failed, making the request again...");
 				}
-			}
-			return { cancel: false };
-		},
-		{ urls: ["<all_urls>"] },
-		["requestHeaders"]
-	);
+				return { cancel: false };
+			},
+			{ urls: ["<all_urls>"] },
+			["requestHeaders"]
+		);
+	}
 
 	async function handleChange() {
 		const tab = await getCurrentTab();
 		const data = await browser.storage.sync.get("state");
-		if(!import.meta.env.FIREFOX){
+		if (!import.meta.env.FIREFOX) {
 			applyBadge(tab, data.state);
 		}
 	}

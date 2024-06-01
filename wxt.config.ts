@@ -8,7 +8,7 @@ export default defineConfig({
   }),
   manifest: {
     name: "Salesforce™ Dev One",
-    permissions: ['storage', 'activeTab', 'scripting', 'webRequest'],
+    permissions: ['storage', 'activeTab', 'scripting'],
     host_permissions: ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
     browser_specific_settings: {
       gecko: {
