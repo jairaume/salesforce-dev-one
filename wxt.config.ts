@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [react()],
   }),
   manifest: {
-    name: "Salesforce™ Dev One",
+    name: "Sf Dev One",
     permissions: ['storage', 'activeTab'],
     host_permissions: ["https://*/_ui/common/apex/debug/ApexCSIPage/*"],
     browser_specific_settings: {
